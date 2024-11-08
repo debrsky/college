@@ -49,10 +49,10 @@ erDiagram
         string name
     }
 
-    PERSONAL_DATA ||--o| STUDENT: "принадлежат студенту"
-    STUDENT |o--|| EDUCATIONAL_PROGRAM   : "обучается по программе"
-    STUDENT ||--o| STUDY_GROUP : "числится в группе"
-    STUDY_GROUP }o--|| EDUCATIONAL_PROGRAM : "содержит обучающихся по программе"
+    PERSONAL_DATA ||--o{ STUDENT: "принадлежат студенту"
+    STUDENT }o--|| EDUCATIONAL_PROGRAM   : "обучается по программе"
+    STUDENT }o--o| STUDY_GROUP : "числится в группе"
+    STUDY_GROUP }o--o| EDUCATIONAL_PROGRAM : "содержит обучающихся по программе"
     EDUCATIONAL_PROGRAM }o--|| SPECIALTY : "организует обучение по специальности"
 
 ```
