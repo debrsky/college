@@ -19,7 +19,7 @@ erDiagram
         int budget_places
         int contract_places
     }
-    
+
     SPECIALTY {
         int specialty_id PK
         string name
@@ -27,14 +27,14 @@ erDiagram
         int study_duration
         string qualification
     }
-    
+
     PERSONAL_DATA {
         int personal_id PK
         string full_name
         string address
         string additional_info
     }
-    
+
     STUDENT {
         int student_id PK
         int personal_id FK
@@ -42,7 +42,7 @@ erDiagram
         int group_id FK
         int status_id "(1 учится|2 в академическом отпуске|3 отчислен|4 закончил обучение)"
     }
-    
+
     STUDY_GROUP {
         int group_id PK
         int program_id FK
