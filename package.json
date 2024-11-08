@@ -1,0 +1,21 @@
+{
+  "name": "college",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "pgstatus": "pg_ctl status -D \"storage/PGDATA\"",
+    "pgshow": "start postgres -D \"storage/PGDATA\" --lc-messages=en_US.UTF-8",
+    "pgstart": "pg_ctl start -D \"storage/PGDATA\" -l pgsql.log",
+    "pgstop": "pg_ctl stop -D \"storage/PGDATA\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "pg": "^8.13.1"
+  }
+}
