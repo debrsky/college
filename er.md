@@ -40,7 +40,7 @@ erDiagram
         int personal_id FK
         int program_id FK
         int group_id FK
-        string status "(учится|в академическом отпуске|отчислен|закончил обучение)"
+        int status_id "(1 учится|2 в академическом отпуске|3 отчислен|4 закончил обучение)"
     }
     
     STUDY_GROUP {
