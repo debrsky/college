@@ -43,6 +43,9 @@ async function checkAndCreateDatabase(dbName) {
     // Показ информации о базе данных
     await showDatabaseInfo(dbName, adminClient);
 
+    // Показ схемы данных
+    await showDatabaseSchema(dbName, adminClient);
+
   } catch (err) {
     console.error('Ошибка при проверке или создании базы данных:', err.stack);
   } finally {
@@ -72,6 +75,29 @@ async function showDatabaseInfo(dbName, adminClient) {
     console.table(dbInfoRes.rows);
   } catch (err) {
     console.error('Ошибка при получении информации о базе данных:', err.stack);
+  }
+}
+
+// Функция для показа схемы данных
+async function showDatabaseSchema(dbName, adminClient) {
+  try {
+    const schemaRes = await adminClient.query(`
+      SELECT
+        table_name AS "Table Name",
+        column_name AS "Column Name",
+        data_type AS "Data Type",
+        is_nullable AS "Is Nullable"
+      FROM
+        information_schema.columns
+      WHERE
+        table_catalog = $1
+      ORDER BY
+        table_name, ordinal_position;
+    `, [dbName]);
+
+    console.table(schemaRes.rows);
+  } catch (err) {
+    console.error('Ошибка при получении схемы данных базы данных:', err.stack);
   }
 }
 
